@@ -75,7 +75,7 @@ namespace Homework_Theme_04
                 Console.Clear();
                 Console.WriteLine("Выберите задание:");
                 Console.WriteLine("1. Финансы");
-                Console.WriteLine("2. Пирамида");
+                Console.WriteLine("2. Треугольник Паскаля");
                 Console.WriteLine("3. Умножение матрицы на число");
                 Console.WriteLine("4. Сложение и вычитание матриц");
                 Console.WriteLine("5. Умножение матриц");
@@ -241,21 +241,16 @@ namespace Homework_Theme_04
                 else if (item == 2)
                 {
                     Console.WriteLine("2. Треугольник Паскаля");
-
                     Console.WriteLine("\nВведите число строк: ");
-                    int n = Console.Read();
+                    int n = Convert.ToInt32(Console.Read());
 
                     for (int i = 1; i <= n; i++)
                     {
                         for (int j = 1; j <= i; j++)
                         {
-                        
-                        
+                            Console.Write($"  {i}  ");
                         }
-                    
-                    
                     }
-                 
 
 
 
@@ -283,6 +278,7 @@ namespace Homework_Theme_04
                     Console.ReadKey();
                     continue;
                 }
+                
                 Console.WriteLine("\n\nВернуться в меню? y/n");
                 str = Console.ReadLine();
 
