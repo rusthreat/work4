@@ -10,3 +10,9 @@ C:\Users\zrf\source\repos\4\HomeWork4\HomeWork4\obj\Debug\HomeWork4.pdb
 C:\Users\zrf\source\repos\4\HomeWork4\HomeWork4\bin\Debug\HomeWork4.exe.config
 C:\Users\zrf\source\repos\4\HomeWork4\HomeWork4\bin\Debug\HomeWork4.exe
 C:\Users\zrf\source\repos\4\HomeWork4\HomeWork4\bin\Debug\HomeWork4.pdb
+C:\Users\zrf\source\repos\4\HomeWork4\obj\Debug\HomeWork4.csprojAssemblyReference.cache
+C:\Users\zrf\source\repos\4\HomeWork4\obj\Debug\HomeWork4.exe
+C:\Users\zrf\source\repos\4\HomeWork4\obj\Debug\HomeWork4.pdb
+C:\Users\zrf\source\repos\4\HomeWork4\bin\Debug\HomeWork4.exe.config
+C:\Users\zrf\source\repos\4\HomeWork4\bin\Debug\HomeWork4.exe
+C:\Users\zrf\source\repos\4\HomeWork4\bin\Debug\HomeWork4.pdb

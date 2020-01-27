@@ -8,7 +8,6 @@ namespace Homework_Theme_04
 {
     class Program
     {
-        static int item;
         static string str;
         static Random random = new Random();
 
@@ -156,62 +155,90 @@ namespace Homework_Theme_04
                     for (int i = 0; i < income.Length; i++)      
                     {                                           
                         income[i] = random.Next(9,16) * 10000;
-                        expense[i] = random.Next(5,12) * 10000;
+                        expense[i] = random.Next(6,13) * 10000;
                     }                                            
 
                     // 2. Обработка массивов
-                    int[] profit = new int[12]; // массив прибыли
+                    int[,] profit = new int[2,12]; // массив прибыли
 
                     // массив месяцев с худшей прибылью
-                    int[] bad_profit = new int[12]; // массив прибыли
+                    //int[,] bad_profit = new int[2,12]; // массив прибыли
 
                     // Вывод шапки отчета
                     Console.WriteLine("Месяц      Доход, тыс. руб.  Расход, тыс. руб.     Прибыль, тыс. руб.");
                     
                     // Счетчик месяцев с положительной прибылью
-                    int goodmonth = 0;
-                    // минимальное значение прибыли
-                    int previous_profit = 0;
+                    int good_month = 0;
                     
                     for (int i = 0; i < income.Length; i++)      
                     {                                           
-                        profit[i] = income[i] - expense[i];
-                        Console.WriteLine($"{i+1,5}{income[i],22}{expense[i],19}{profit[i],23}");
-                        if (profit[i] > 0)
+                        profit[0,i] = income[i] - expense[i];
+                        profit[1,i] = i+1;
+                        Console.WriteLine($"{i+1,5}{income[i],22}{expense[i],19}{profit[0,i],23}");
+                        if (profit[0,i] > 0)
                         {
-                            goodmonth++;    
-                        }
-                        
-                        if (i = 0)
-                        {
-                            previous_profit = profit[i]; 
-                            bad_profit[i] = i;
-                        }
-                        else
-                        {
-                            if (previous_profit > profit[i])
-                            {
-                                
-
-
-
-                            }
-                            else
-
+                            good_month++;    
                         }
                     }                                            
 
                     // 3. Вывод показателей
-                    Console.WriteLine($"\nМесяцев с положительной прибылью: {goodmonth}");
+                    Console.WriteLine($"\nМесяцев с положительной прибылью: {good_month}");
 
-                    // Вывод месяцев с худшей прибылью
-                    int[] profitsort = Array.Copy(profit);
+                    // Сортировка массива profit по возрастанию прибыли
+                    while(true)
+                    {
+                        bool flag = false;
+                        for (int i = 0; i < 12; i++)
+                        {
+                            if (i == 11)
+                            {
+                                flag = true;
+                            }
+                            else if (profit[0,i] > profit[0,i+1])
+                            {
+                                // меняем местами суммы
+                                int r = profit[0,i];
+                                profit[0,i] = profit[0,i+1];
+                                profit[0,i+1] = r;
 
+                                // меняем местами месяцы
+                                r = profit[1,i];
+                                profit[1,i] = profit[1,i+1];
+                                profit[1,i+1] = r;
+
+                                break;
+                            }
+                        }
+                        if (flag == true)
+                        {
+                            break;                                    
+                        }
+                    }
+
+                    //
+                    Console.Write("Худшая прибыль в месяцах: ");
+                    int count = 1;
+                    int previous_value = -500000;
                     
-                    for (int i = 0; i < profit.Length; i++)      
+                    for (int i = 0; i < 12; i++)      
                     {                                           
-                                        
-                    }                                            
+                        if (i != 0 && previous_value != profit[0,i])
+                        {
+                            count++;                    
+                        }
+                        if (count > 3)
+                        {
+                            break;
+                        }
+                        else if (i != 0)
+                        {
+                            Console.Write(", ");
+                        }
+                        Console.Write($"{profit[1,i]}");
+
+                        previous_value = profit[0,i];
+                    }
+
                 }
                 else if (item == 2)
                 {
@@ -239,7 +266,7 @@ namespace Homework_Theme_04
                     Console.ReadKey();
                     continue;
                 }
-                Console.WriteLine("Вернуться в меню? y/n");
+                Console.WriteLine("\n\nВернуться в меню? y/n");
                 str = Console.ReadLine();
 
                 if (str == "y")
