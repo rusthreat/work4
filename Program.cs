@@ -270,7 +270,15 @@ namespace Homework_Theme_04
                             {
                                 jaggedArray[i][j] = jaggedArray[i-1][j-1] + jaggedArray[i-1][j];
                             } 
-                            Console.Write($"   {jaggedArray[i][j]}   ");
+                            Console.Write($"{jaggedArray[i][j]}");
+                            if (jaggedArray[i][j] >= 10)
+                            {
+                                Console.Write("      ");
+                            }
+                            else
+                            {
+                                Console.Write("       ");
+                            }
                         }
                         Console.WriteLine();
                     }
