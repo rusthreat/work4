@@ -74,11 +74,11 @@ namespace Homework_Theme_04
             {
                 Console.Clear();
                 Console.WriteLine("Выберите задание:");
-                Console.WriteLine("1. Финансы");
-                Console.WriteLine("2. Треугольник Паскаля");
-                Console.WriteLine("3. Умножение матрицы на число");
-                Console.WriteLine("4. Сложение и вычитание матриц");
-                Console.WriteLine("5. Умножение матриц");
+                Console.WriteLine("1 - Финансы");
+                Console.WriteLine("2 - Треугольник Паскаля");
+                Console.WriteLine("3 - Умножение матрицы на число");
+                Console.WriteLine("4 - Сложение и вычитание матриц");
+                Console.WriteLine("5 - Умножение матриц");
                 int item = int.Parse(Console.ReadLine());
 
                 Console.Clear();
@@ -285,24 +285,30 @@ namespace Homework_Theme_04
                 }
                 #endregion
 
-                #region Задание 3 - Умножение матрицы на число
+                #region Задание 3.1. Умножение матрицы на число
                 else if (item == 3)
                 {
-                    Console.WriteLine("3. Умножение матрицы на число");
+                    Console.WriteLine("3.1. Умножение матрицы на число");
 
                 }
                 #endregion
 
+                #region Задание 3.2. Сложение и вычитание матриц
                 else if (item == 4)
                 {
-                    Console.WriteLine("4. Сложение и вычитание матриц");
+                    Console.WriteLine("3.2. Сложение и вычитание матриц");
 
                 }
+                #endregion
+
+                #region Задание 3.3. Умножение матриц
                 else if (item == 5)
                 {
-                    Console.WriteLine("5. Умножение матриц");
+                    Console.WriteLine("3.3. Умножение матриц");
 
                 }
+                #endregion
+
                 else
                 {
                     Console.WriteLine("Укажите верное значение");
