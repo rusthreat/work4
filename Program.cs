@@ -242,26 +242,49 @@ namespace Homework_Theme_04
                 {
                     Console.WriteLine("2. Треугольник Паскаля");
                     Console.WriteLine("\nВведите число строк: ");
-                    int n = Convert.ToInt32(Console.Read());
+                    int n = Convert.ToInt32(Console.ReadLine());
 
-                    for (int i = 1; i <= n; i++)
+                    // объявление двумерного массива
+                    int[][] jaggedArray = new int[n][];
+                    
+                    // поиск центра 
+                    int center = Console.WindowWidth / 2;
+
+                    // заполнение массива массивов информацией 
+                    for (int i = 0; i < n; i++)
                     {
-                        for (int j = 1; j <= i; j++)
-                        {
-                            Console.Write($"  {i}  ");
+                        // создание одномерного массива - строки
+                        jaggedArray[i] = new int[i+1];
+
+                        // установка курсора для вывода результата в виде пирамиды
+                        // Console.SetCursorPosition((Console.WindowWidth - (i + 1) * 7) / 2, Console.CursorTop);
+                        Console.SetCursorPosition(center-=4, Console.CursorTop);
+                        
+                        for (int j = 0; j <= i; j++)
+                        { 
+                            if (j == 0 || j == i)
+                            {
+                                jaggedArray[i][j] = 1;    
+                            }
+                            else
+                            {
+                                jaggedArray[i][j] = jaggedArray[i-1][j-1] + jaggedArray[i-1][j];
+                            } 
+                            Console.Write($"   {jaggedArray[i][j]}   ");
                         }
+                        Console.WriteLine();
                     }
-
-
-
                 }
                 #endregion
 
+                #region Задание 3 - Умножение матрицы на число
                 else if (item == 3)
                 {
                     Console.WriteLine("3. Умножение матрицы на число");
 
                 }
+                #endregion
+
                 else if (item == 4)
                 {
                     Console.WriteLine("4. Сложение и вычитание матриц");
