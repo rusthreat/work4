@@ -192,7 +192,7 @@ namespace Homework_Theme_04
                     int[][] jaggedArray = new int[n][];
                     
                     // поиск центра 
-                    int center = Console.WindowWidth / 2;
+                    int center = Console.WindowWidth / 2 - 4;
 
                     // заполнение массива массивов информацией 
                     for (int i = 0; i < n; i++)
@@ -214,15 +214,7 @@ namespace Homework_Theme_04
                             {
                                 jaggedArray[i][j] = jaggedArray[i-1][j-1] + jaggedArray[i-1][j];
                             } 
-                            Console.Write($"{jaggedArray[i][j]}");
-                            if (jaggedArray[i][j] >= 10)
-                            {
-                                Console.Write("      ");
-                            }
-                            else
-                            {
-                                Console.Write("       ");
-                            }
+                            Console.Write($"{jaggedArray[i][j],8:0}");
                         }
                         Console.WriteLine();
                     }
@@ -251,6 +243,33 @@ namespace Homework_Theme_04
                 {
                     Console.WriteLine("3.1. Умножение матрицы на число");
 
+                    // запрос размера матрицы
+                    Console.WriteLine("Укажите число строк: ");
+                    int n = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Укажите число столбцов: ");
+                    int m = Convert.ToInt32(Console.ReadLine());
+
+                    // объявление начальной матрицы
+                    int[][] Array = new int[n][];
+
+                    // 
+
+                    Console.WriteLine("Укажите число-множитель: ");
+                    int a = Convert.ToInt32(Console.ReadLine());
+                    int i = 0;
+                    // формирование матрицы и умножение на число
+                    for (int j = 0; j <= n; j++)
+                    { 
+                        for ( i = 0; i <= m; i++)
+                        {
+                            Array[j][i] = random.Next(1,10);
+
+
+
+                        }
+                        Console.WriteLine($"{Array[j][i],3}");
+                    }
+                    Console.WriteLine();
                 }
                 #endregion
 
