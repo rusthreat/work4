@@ -252,24 +252,66 @@ namespace Homework_Theme_04
                     // объявление начальной матрицы
                     int[][] Array = new int[n][];
 
+                    // объявление итоговой матрицы
+                    int[][] Total = new int[n][];
                     // 
 
                     Console.WriteLine("Укажите число-множитель: ");
                     int a = Convert.ToInt32(Console.ReadLine());
-                    int i = 0;
-                    // формирование матрицы и умножение на число
-                    for (int j = 0; j <= n; j++)
+
+                    // формирование начальной матрицы и итоговой матрицы
+                    for (int j = 0; j < n; j++)
                     { 
-                        for ( i = 0; i <= m; i++)
+                        Array[j] = new int[m];
+                        Total[j] = new int[m];
+                        
+                        for (int i = 0; i < m; i++)
                         {
                             Array[j][i] = random.Next(1,10);
-
-
-
+                            Total[j][i] = Array[j][i] * a;
                         }
-                        Console.WriteLine($"{Array[j][i],3}");
                     }
-                    Console.WriteLine();
+
+                    // вывод результата
+                    // поиск строки, на которой будет выведен множитель
+                    int a_output = (n % 2 == 0)?(n / 2):((n + 1) / 2);
+
+                    for (int j = 0; j < n; j++)
+                    {
+                        Console.WriteLine();
+
+                        if (a_output - 1 == j)
+                        {
+                            Console.Write($"{a,5:0} * |");
+                        }
+                        else
+                        {
+                            Console.Write($"        |");   
+                        }
+
+                        // вывод начальной таблицы
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Array[j][i],3:0}");
+                        }
+                        
+                        if (a_output - 1 == j)
+                        {
+                            Console.Write($" | = |");
+                        }
+                        else
+                        {
+                            Console.Write($" |   |");   
+                        }
+                        
+                        // вывод итоговой таблицы
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Total[j][i],3:0}");
+                        }
+
+                        Console.Write($" |");
+                    }
                 }
                 #endregion
 
