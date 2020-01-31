@@ -280,6 +280,7 @@ namespace Homework_Theme_04
                     {
                         Console.WriteLine();
 
+                        // вывод множителя
                         if (a_output - 1 == j)
                         {
                             Console.Write($"{a,5:0} * |");
@@ -338,8 +339,165 @@ namespace Homework_Theme_04
                 
                 else if (item == 4)
                 {
-                    Console.WriteLine("3.2. Сложение и вычитание матриц");
+                    int n = 0;
+                    int m = 0;
+                    
+                    while (true)
+                    {
+                        Console.WriteLine("3.2. Сложение и вычитание матриц");
+                        
+                        // запрос размера матрицы
+                        Console.WriteLine("Укажите число строк: ");
+                        n = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Укажите число столбцов: ");
+                        m = Convert.ToInt32(Console.ReadLine());
 
+                        if (n != m)
+                        {
+                            Console.WriteLine("Складывать и вычитать можно только матрицы одинакового размера.");
+                            Console.WriteLine("Попробуйте еще раз.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }   
+                    
+                    // объявление 1-й матрицы
+                    int[][] Array1 = new int[n][];
+
+                    // объявление 2-й матрицы
+                    int[][] Array2 = new int[n][];
+
+                    // объявление 1-й итоговой матрицы
+                    int[][] Total1 = new int[n][];
+
+                    // объявление 2-й итоговой матрицы
+                    int[][] Total2 = new int[n][];
+
+                    // формирование матриц
+                    for (int j = 0; j < n; j++)
+                    { 
+                        Array1[j] = new int[m];
+                        Array2[j] = new int[m];
+
+                        Total1[j] = new int[m];
+                        Total2[j] = new int[m];
+
+                        for (int i = 0; i < m; i++)
+                        {
+                            Array1[j][i] = random.Next(1,10);
+                            Array2[j][i] = random.Next(1,10);
+                            
+                            // Расчет значений итоговых матриц    
+                            Total1[j][i] = Array1[j][i] + Array2[j][i];
+                            Total2[j][i] = Array1[j][i] - Array2[j][i];
+                        }
+                    }
+
+                    // вывод результата
+                    // поиск строки, на которой будут выводится знаки
+                    int a_output = (n % 2 == 0)?(n / 2):((n + 1) / 2);
+                    
+                    Console.WriteLine();
+
+                    // вывод операции сложения
+                    Console.WriteLine("Сложение:");
+                    for (int j = 0; j < n; j++)
+                    {
+                        Console.Write("\n|");
+                        
+                        // вывод первой начальной матрицы
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Array1[j][i],3:0}");
+                        }
+                        
+                        // вывод знака сложения
+                        if (a_output - 1 == j)
+                        {
+                            Console.Write(" | + |");
+                        }
+                        else
+                        {
+                            Console.Write(" |   |");   
+                        }
+
+                        // вывод второй начальной матрицы
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Array2[j][i],3:0}");
+                        }
+                        
+                        // вывод знака равенства
+                        if (a_output - 1 == j)
+                        {
+                            Console.Write(" | = |");
+                        }
+                        else
+                        {
+                            Console.Write(" |   |");   
+                        }
+                        
+                        // вывод итоговой матрицы сложения
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Total1[j][i],3:0}");
+                        }
+
+                        Console.Write($" |");
+
+                    }
+                    Console.WriteLine("\n");
+
+                    // вывод операции вычитания
+                    Console.WriteLine("Вычитание:");
+
+                    for (int j = 0; j < n; j++)
+                    {
+                        Console.Write("\n|");
+                        
+                        // вывод первой начальной матрицы
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Array1[j][i],3:0}");
+                        }
+                        
+                        // вывод знака вычитания
+                        if (a_output - 1 == j)
+                        {
+                            Console.Write(" | - |");
+                        }
+                        else
+                        {
+                            Console.Write(" |   |");   
+                        }
+
+                        // вывод второй начальной матрицы
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Array2[j][i],3:0}");
+                        }
+                        
+                        // вывод знака равенства
+                        if (a_output - 1 == j)
+                        {
+                            Console.Write(" | = |");
+                        }
+                        else
+                        {
+                            Console.Write(" |   |");   
+                        }
+                        
+                        // вывод итоговой матрицы вычитания
+                        for (int i = 0; i < m; i++)
+                        {
+                            Console.Write($"{Total2[j][i],3:0}");
+                        }
+
+                        Console.Write($" |");
+                    }
                 }
                 #endregion
 
