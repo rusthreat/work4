@@ -244,7 +244,7 @@ namespace Homework_Theme_04
                     Console.WriteLine("3.1. Умножение матрицы на число");
 
                     // запрос размера матрицы
-                    Console.WriteLine("Укажите число строк: ");
+                    Console.WriteLine("\nУкажите число строк: ");
                     int n = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Укажите число столбцов: ");
                     int m = Convert.ToInt32(Console.ReadLine());
@@ -347,7 +347,7 @@ namespace Homework_Theme_04
                         Console.WriteLine("3.2. Сложение и вычитание матриц");
                         
                         // запрос размера матрицы
-                        Console.WriteLine("Укажите число строк: ");
+                        Console.WriteLine("\nУкажите число строк: ");
                         n = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Укажите число столбцов: ");
                         m = Convert.ToInt32(Console.ReadLine());
@@ -532,7 +532,7 @@ namespace Homework_Theme_04
                         Console.WriteLine("3.3. Умножение матриц");
                         
                         // запрос размера 1-й матрицы
-                        Console.WriteLine("Укажите число строк 1-й матрицы: ");
+                        Console.WriteLine("\nУкажите число строк 1-й матрицы: ");
                         n1 = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Укажите число столбцов 1-матрицы: ");
                         m1 = Convert.ToInt32(Console.ReadLine());
@@ -582,7 +582,7 @@ namespace Homework_Theme_04
                     }
 
                     // формирование и вывод 2-й матрицы
-                    Console.WriteLine("\nМатрица 2:\n");
+                    Console.WriteLine("\n\nМатрица 2:");
                     for (int j = 0; j < n2; j++)
                     { 
                         Array2[j] = new int[m2];
@@ -600,7 +600,7 @@ namespace Homework_Theme_04
 
                     // Вывод результата
                     // Расчет умножения
-                    Console.WriteLine("\n\n Итог умножения матриц:\n");
+                    Console.WriteLine("\n\nИтог умножения матриц:");
                     for (int j = 0; j < n1; j++)
                     { 
                         Total[j] = new int[m2];
@@ -611,12 +611,9 @@ namespace Homework_Theme_04
                             int i2 = 0;
                             int sum = 0;
 
-                            for (int k = 0; k < n1; k++)
+                            for (int k = 0; k < m1; k++)
                             { 
-                                //for (int i2 = 0; i2 < m2; i2++)
-                                //{
-                                    sum = sum + (Array1[j][k] * Array2[k][i]);
-                                //}
+                                sum = sum + (Array1[j][k] * Array2[k][i]);
                             }
                             
                             Total[j][i] = sum;
