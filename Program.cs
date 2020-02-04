@@ -522,8 +522,108 @@ namespace Homework_Theme_04
                 
                 else if (item == 5)
                 {
-                    Console.WriteLine("3.3. Умножение матриц");
+                    int n1 = 0;
+                    int n2 = 0;
+                    int m1 = 0;
+                    int m2 = 0;
+                    
+                    while (true)
+                    {
+                        Console.WriteLine("3.3. Умножение матриц");
+                        
+                        // запрос размера 1-й матрицы
+                        Console.WriteLine("Укажите число строк 1-й матрицы: ");
+                        n1 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Укажите число столбцов 1-матрицы: ");
+                        m1 = Convert.ToInt32(Console.ReadLine());
 
+                        // запрос размера 2-й матрицы
+                        Console.WriteLine("Укажите число строк 2-й матрицы: ");
+                        n2 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Укажите число столбцов 2-матрицы: ");
+                        m2 = Convert.ToInt32(Console.ReadLine());
+
+                        if (m1 != n2)
+                        {
+                            Console.WriteLine("Число столбцов 1-й матрицы должно быть равно числу строк 2-й матрицы.");
+                            Console.WriteLine("Попробуйте еще раз.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }   
+                    
+                    // объявление 1-й матрицы
+                    int[][] Array1 = new int[n1][];
+
+                    // объявление 2-й матрицы
+                    int[][] Array2 = new int[n2][];
+
+                    // объявление итоговой матрицы
+                    int[][] Total = new int[n1][];
+
+                    // формирование и вывод 1-й матрицы
+                    Console.WriteLine("\nМатрица 1:");
+                    for (int j = 0; j < n1; j++)
+                    { 
+                        Array1[j] = new int[m1];
+                        
+                        Console.Write("\n|");
+
+                        for (int i = 0; i < m1; i++)
+                        {
+                            Array1[j][i] = random.Next(1,10);
+                            Console.Write($"{Array1[j][i],3:0}");
+                        }
+
+                        Console.Write("  |");
+                    }
+
+                    // формирование и вывод 2-й матрицы
+                    Console.WriteLine("\nМатрица 2:\n");
+                    for (int j = 0; j < n2; j++)
+                    { 
+                        Array2[j] = new int[m2];
+                        
+                        Console.Write("\n|");
+
+                        for (int i = 0; i < m2; i++)
+                        {
+                            Array2[j][i] = random.Next(1,10);
+                            Console.Write($"{Array2[j][i],3:0}");
+                        }
+
+                        Console.Write("  |");
+                    }
+
+                    // Вывод результата
+                    // Расчет умножения
+                    Console.WriteLine("\n\n Итог умножения матриц:\n");
+                    for (int j = 0; j < n1; j++)
+                    { 
+                        Total[j] = new int[m2];
+                        Console.Write("\n|");
+
+                        for (int i = 0; i < m2; i++)
+                        {
+                            int i2 = 0;
+                            int sum = 0;
+
+                            for (int k = 0; k < n1; k++)
+                            { 
+                                //for (int i2 = 0; i2 < m2; i2++)
+                                //{
+                                    sum = sum + (Array1[j][k] * Array2[k][i]);
+                                //}
+                            }
+                            
+                            Total[j][i] = sum;
+                            Console.Write($"{Total[j][i],4:0}");
+                        }
+                        Console.Write("  |");
+                    } 
                 }
                 #endregion
 
